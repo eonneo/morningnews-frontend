@@ -16,7 +16,7 @@ function Home() {
 
   //display the articles when the component opens
   useEffect(() => {
-    fetch('https://vercel.com/eonneo/morningnews-backend/routes/index/articles')
+    fetch('https://vercel.com/eonneo/morningnews-backend/routes/articles')
       .then(response => response.json())
       .then(data => {
         //set the first as top article
