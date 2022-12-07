@@ -17,7 +17,7 @@ function Article(props) {
       return;
     }
     //fetch DB with token to know if bookmark is allowed
-    fetch(`http://localhost:3000/users/canBookmark/${user.token}`)
+    fetch(`https://vercel.com/eonneo/morningnews-backend/routes/users/canBookmark/${user.token}`)
       .then(response => response.json())
       .then(data => {
         if (data.result && data.canBookmark) {
