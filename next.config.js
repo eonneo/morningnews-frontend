@@ -5,7 +5,7 @@ const nextConfig = {
     domains: ['cdn.vox-cdn.com'],
   },
   env: {
-    fetch:'https://morningnews-backend.vercel.app/',
+    BACKEND_URL:'https://morningnews-backend.vercel.app/',
   },
 };
 

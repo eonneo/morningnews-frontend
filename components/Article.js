@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookmark, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import Image from 'next/image';
 import styles from '../styles/Article.module.css';
-import fetch from '../next.config';
+import BACKEND_URL from '../next.config';
 
 function Article(props) {
   const dispatch = useDispatch();
@@ -18,7 +18,7 @@ function Article(props) {
       return;
     }
     //fetch DB with token to know if bookmark is allowed
-    fetch(`${fetch}users/canBookmark/${user.token}`)
+    fetch(`${BACKEND_URL}users/canBookmark/${user.token}`)
       .then(response => response.json())
       .then(data => {
         if (data.result && data.canBookmark) {

@@ -3,7 +3,7 @@ import { addBookmark, removeBookmark } from '../reducers/bookmarks';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookmark } from '@fortawesome/free-solid-svg-icons';
 import styles from '../styles/TopArticle.module.css';
-import fetch from '../next.config';
+import BACKEND_URL from '../next.config';
 
 function TopArticle(props) {
   const dispatch = useDispatch();
@@ -18,7 +18,7 @@ function TopArticle(props) {
     }
 
     //check if bookmark is possible
-    fetch(`${fetch}users/canBookmark/${user.token}`)
+    fetch(`${BACKEND_URL}users/canBookmark/${user.token}`)
       .then(response => response.json())
       .then(data => {
         if (data.result && data.canBookmark) {

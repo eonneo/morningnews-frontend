@@ -9,7 +9,7 @@ import { Modal } from 'antd';
 import Link from 'next/link';
 import Moment from 'react-moment';
 import styles from '../styles/Header.module.css';
-import fetch from '../next.config';
+import BACKEND_URL from '../next.config';
 
 function Header() {
   const dispatch = useDispatch();
@@ -30,7 +30,7 @@ function Header() {
 
   //SignUp
   const handleRegister = () => {
-    fetch(`${fetch}users/signup`, {
+    fetch(`${BACKEND_URL}users/signup`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username: signUpUsername, password: signUpPassword }),
@@ -47,7 +47,7 @@ function Header() {
 
   //SignIn
   const handleConnection = () => {
-    fetch(`${fetch}users/signin`, {
+    fetch(`${BACKEND_URL}users/signin`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username: signInUsername, password: signInPassword }),

@@ -4,7 +4,7 @@ import Head from 'next/head';
 import Article from './Article';
 import TopArticle from './TopArticle';
 import styles from '../styles/Home.module.css';
-import fetch from '../next.config';
+import BACKEND_URL from '../next.config';
 
 function Home() {
   //get the value from bookmarks reducer
@@ -17,7 +17,7 @@ function Home() {
 
   //display the articles when the component opens
   useEffect(() => {
-    fetch(`${fetch}articles`)
+    fetch(`${BACKEND_URL}articles`)
       .then(response => response.json())
       .then(data => {
         //set the first as top article
