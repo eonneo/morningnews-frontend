@@ -29,7 +29,7 @@ function Header() {
 
   //SignUp
   const handleRegister = () => {
-    fetch('https://vercel.com/eonneo/morningnews-backend/routes/users/signup', {
+    fetch('https://morningnews-backend.vercel.app/users/signup', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username: signUpUsername, password: signUpPassword }),
@@ -46,7 +46,7 @@ function Header() {
 
   //SignIn
   const handleConnection = () => {
-    fetch('https://vercel.com/eonneo/morningnews-backend/routes/users/signin', {
+    fetch('https://morningnews-backend.vercel.app/users/signin', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username: signInUsername, password: signInPassword }),
