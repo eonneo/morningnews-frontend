@@ -4,6 +4,9 @@ const nextConfig = {
   images: {
     domains: ['cdn.vox-cdn.com'],
   },
+  env: {
+    fetch:'https://morningnews-backend.vercel.app/',
+  },
 };
 
 module.exports = nextConfig;

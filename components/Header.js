@@ -9,6 +9,7 @@ import { Modal } from 'antd';
 import Link from 'next/link';
 import Moment from 'react-moment';
 import styles from '../styles/Header.module.css';
+import fetch from '../next.config';
 
 function Header() {
   const dispatch = useDispatch();
@@ -29,7 +30,7 @@ function Header() {
 
   //SignUp
   const handleRegister = () => {
-    fetch('https://morningnews-backend.vercel.app/users/signup', {
+    fetch(`${fetch}users/signup`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username: signUpUsername, password: signUpPassword }),
@@ -46,7 +47,7 @@ function Header() {
 
   //SignIn
   const handleConnection = () => {
-    fetch('https://morningnews-backend.vercel.app/users/signin', {
+    fetch(`${fetch}users/signin`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username: signInUsername, password: signInPassword }),

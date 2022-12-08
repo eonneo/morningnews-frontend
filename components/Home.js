@@ -4,6 +4,7 @@ import Head from 'next/head';
 import Article from './Article';
 import TopArticle from './TopArticle';
 import styles from '../styles/Home.module.css';
+import fetch from '../next.config';
 
 function Home() {
   //get the value from bookmarks reducer
@@ -16,8 +17,8 @@ function Home() {
 
   //display the articles when the component opens
   useEffect(() => {
-    fetch('https://morningnews-backend.vercel.app/articles')
-      .then(response => {console.log(response); response.json()})
+    fetch(`${fetch}articles`)
+      .then(response => response.json())
       .then(data => {
         //set the first as top article
         setTopArticle(data.articles[0]);
