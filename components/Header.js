@@ -9,12 +9,12 @@ import { Modal } from 'antd';
 import Link from 'next/link';
 import Moment from 'react-moment';
 import styles from '../styles/Header.module.css';
-import BACKEND_URL from '../next.config';
 
 function Header() {
   const dispatch = useDispatch();
   //get the value from user reducer
   const user = useSelector((state) => state.user.value);
+  const fetchUrl = process.env.BACKEND_URL
 
   const [date, setDate] = useState('2050-11-22T23:59:59');
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -30,7 +30,7 @@ function Header() {
 
   //SignUp
   const handleRegister = () => {
-    fetch(`${BACKEND_URL}users/signup`, {
+    fetch(`${fetchUrl}users/signup`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username: signUpUsername, password: signUpPassword }),
@@ -47,7 +47,7 @@ function Header() {
 
   //SignIn
   const handleConnection = () => {
-    fetch(`${BACKEND_URL}users/signin`, {
+    fetch(`${fetchUrl}users/signin`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username: signInUsername, password: signInPassword }),
